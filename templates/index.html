@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block title %}AI Video Studio — Make your next edit{% endblock %}
+{% block content %}
+<section class="hero">
+<div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> YOUR CREATIVE WORKSPACE</div>
+<h1>From raw clips<br>to <span class="gradient-text">your next style.</span></h1>
+<p>Choose a trend-inspired look, describe your idea, and get a structured editing blueprint. Build your own creative workflow instead of settling for one-click results.</p>
+<div class="hero-actions"><a class="button primary" href="{{ url_for('register') }}">Start creating <span>↗</span></a><a class="button secondary" href="#styles">Explore styles</a></div>
+<div class="trust-row"><span>✦ 7 style presets</span><span>▣ Projects saved to your account</span><span>↗ Mobile-friendly</span></div></div>
+<div class="hero-art"><div class="preview-card"><div class="preview-top"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="preview-label">STYLE PREVIEW / 001</span></div><div class="visual-scene"><div class="sun"></div><div class="mountain m1"></div><div class="mountain m2"></div><div class="scene-caption">MAKE IT<br><em>UNFORGETTABLE.</em></div><div class="scene-tag">VIRAL REEL · 9:16</div></div><div class="timeline"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="preview-bottom"><span>EDIT BLUEPRINT</span><strong>Ready to customize ↗</strong></div></div><div class="floating-chip chip-one">✦ Smart style plan</div><div class="floating-chip chip-two">♫ Beat-ready workflow</div></div>
+</section>
+<section id="styles" class="section"><div class="section-heading"><div><div class="eyebrow">PICK YOUR DIRECTION</div><h2>One studio. <span class="gradient-text">Many styles.</span></h2></div><p>Start with a preset, then adjust the brief to match your vision.</p></div>
+<div class="style-grid">{% for key, p in presets.items() %}<article class="style-card"><div class="style-icon">{{ p.emoji }}</div><div class="style-name">{{ p.name }}</div><p>{{ p.description }}</p><div class="style-meta">{{ p.format }}</div></article>{% endfor %}</div></section>
+<section class="bottom-cta"><div><div class="eyebrow">YOUR IDEA, YOUR RULES</div><h2>Build the edit you imagined.</h2><p>Save projects, upload source clips, and keep refining your editing plan.</p></div><a class="button primary" href="{{ url_for('register') }}">Create free account ↗</a></section>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}AI Video Studio{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">✦</span> AI VIDEO <b>STUDIO</b></a>
+<nav>{% if current_user %}<a href="{{ url_for('dashboard') }}">My projects</a><a href="{{ url_for('editor') }}">Create video</a><span class="user-pill">{{ current_user }}</span><a href="{{ url_for('logout') }}">Log out</a>{% else %}<a href="{{ url_for('login') }}">Log in</a><a class="nav-cta" href="{{ url_for('register') }}">Get started</a>{% endif %}</nav></header>
+<main class="page">
+{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<div class="flashes">{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}
+</main>
+<footer>AI Video Studio · Create, customize, improve.</footer>
+</body></html>

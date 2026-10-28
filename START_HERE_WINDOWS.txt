@@ -1,0 +1,21 @@
+NEXA AI VIDEO STUDIO V2 — WINDOWS QUICK START
+
+1. Extract this ZIP to a folder, e.g. D:\NEXA_AI_Studio_V2
+2. Install Python 3.12 or newer.
+3. Install FFmpeg and add its bin folder to Windows PATH.
+4. Open the extracted folder in VS Code.
+5. In the VS Code terminal, run:
+
+   py -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install --upgrade pip
+   .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+   .\.venv\Scripts\python.exe app.py
+
+6. Open http://127.0.0.1:5000
+7. Register an account, create a project, upload a video, open the project and use Render your edited video.
+
+Automatic captions use faster-whisper and download a speech model the first time. It can take several minutes and needs an internet connection for the model download. Set WHISPER_MODEL=tiny to use a faster but less accurate model.
+
+Current capabilities: local Whisper transcription and subtitle-track/SRT output, trim start/end, resolution selection, quality/file-size presets, simple color looks, fade-in, FFmpeg background-noise reduction, optional GIF/image overlay, MP4 export.
+
+Limitations: It does not yet clone arbitrary reference videos, automatically find every best cut, synchronize edits to music beats, or generate video from text. Always review captions and output before publishing. FFmpeg must be installed separately.
